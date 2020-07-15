@@ -59,8 +59,8 @@ public class BookController {
     @ApiOperation(value = "master获取book通过ID")
     @RequestMapping(value = "/book1/{id}", method = RequestMethod.GET)
     public Book getItems1(@PathVariable String id) {
-        HintManager.getInstance().setMasterRouteOnly();
-        return bookService.getById(id);
+        //从主库读取，解决读延迟的问题
+        return bookService.getByIdMaster(id);
     }
 
 

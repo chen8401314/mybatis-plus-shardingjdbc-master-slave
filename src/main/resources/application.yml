@@ -6,7 +6,7 @@ spring:
   shardingsphere:
     datasource:
       names:
-        master,slave
+        master,slave,slave1
       # 主数据源
       master:
         type: com.zaxxer.hikari.HikariDataSource
@@ -21,6 +21,13 @@ spring:
         jdbc-url: jdbc:mysql://localhost:3306/db_slave?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
         username: root
         password: mysqladm
+        # 从数据源
+      slave1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/db_slave1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: mysqladm
     masterslave:
       # 读写分离配置
       load-balance-algorithm-type: round_robin
@@ -29,7 +36,7 @@ spring:
       # 主库数据源名称
       master-data-source-name: master
       # 从库数据源名称列表，多个逗号分隔
-      slave-data-source-names: slave
+      slave-data-source-names: slave,slave1
     props:
       # 开启SQL显示，默认false
       sql:

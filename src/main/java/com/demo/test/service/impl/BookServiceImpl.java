@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.demo.test.entity.Book;
 import com.demo.test.mapper.BookMapper;
 import com.demo.test.service.BookService;
+import org.apache.shardingsphere.api.hint.HintManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,17 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     @Override
     public boolean save(Book book) {
         return super.save(book);
+    }
+
+    @Override
+    public Book getByIdMaster(String id) {
+        HintManager hintManager = HintManager.getInstance();
+        hintManager.setMasterRouteOnly();
+        try {
+            return super.getById(id);
+        } finally {
+            hintManager.close();
+        }
     }
 
 

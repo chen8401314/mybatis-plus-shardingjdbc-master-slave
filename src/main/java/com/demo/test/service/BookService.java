@@ -29,4 +29,6 @@ public interface BookService extends IService<Book> {
      */
     List<Book> getBookList();
 
+
+    Book getByIdMaster(String id);
 }
