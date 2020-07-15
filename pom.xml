@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.demo</groupId>
-    <artifactId>springbootshardingmysqlmybatisplus</artifactId>
+    <artifactId>mybatis-plus-shardingjdbc-master-slave</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springbootshardingmysqlmybatisplus</name>
+    <name>mybatis-plus-shardingjdbc-master-slav</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -44,21 +44,27 @@
         <!--shardingsphere start-->
         <!-- for spring boot -->
         <dependency>
-            <groupId>io.shardingsphere</groupId>
+            <groupId>org.apache.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <!-- for spring namespace -->
-        <dependency>
-            <groupId>io.shardingsphere</groupId>
-            <artifactId>sharding-jdbc-spring-namespace</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.0-RC1</version>
         </dependency>
         <!--shardingsphere end-->
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
         </dependency>
     </dependencies>
 
