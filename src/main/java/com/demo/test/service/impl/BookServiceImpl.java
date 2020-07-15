@@ -31,6 +31,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
 
     @Override
     public Book getByIdMaster(String id) {
+        //分片键值管理器设置强制路由
         HintManager hintManager = HintManager.getInstance();
         hintManager.setMasterRouteOnly();
         try {
